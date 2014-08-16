@@ -193,7 +193,7 @@
 {
 	NSString *title = [self.delegate pickerView:self titleForItem:indexPath.item];
 	CGSize size;
-	if ([[[UIDevice currentDevice] systemVersion] floatValue] > 7.0) {
+    if ([title respondsToSelector:@selector(sizeWithAttributes:)]) {
 		size = [title sizeWithAttributes:@{NSFontAttributeName: self.font}];
 	} else {
 		size = [title sizeWithFont:self.font];
